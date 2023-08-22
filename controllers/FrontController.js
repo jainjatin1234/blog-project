@@ -31,7 +31,7 @@ class FrontController{
 
     static contact = (req,res)=>{
 
-        res.render('contact')
+        res.render('contact', {message5: req.flash('success')})
     }
 
 

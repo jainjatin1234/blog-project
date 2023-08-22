@@ -6,6 +6,13 @@
         <div class="row justify-content-center">
           <div class="col-md-8">
             <h1>Contact</h1>
+
+            <% if(message5.length >0){ %>
+              <div class="alert alert-danger">
+               <%= message5 %>
+              </div>
+           <% } %>
+
             <form action="/insertcontact" method="post">
               <div class="form-group" >
                 <input type="text" name="name" class="form-control" placeholder="Name" style="background-color:rgb(255,250,250) ;">

@@ -1,9 +1,11 @@
 const ContactModel = require('../../models/Contact')
+const nodemailer = require('nodemailer')
 class ContactController{
 
     static insertcontact=async(req,res)=>{
        try{
-      const {verified,_id} = req.admin
+      const {  email, name } = req.body;
+
       const insert = await new ContactModel({
 
             name:req.body.name,
@@ -12,7 +14,9 @@ class ContactController{
             message:req.body.message
         })
         await insert.save()
-        console.log(insert)
+        // console.log(insert)
+        req.flash("success", "Adding Your Contact Details Succesfully");
+      this.sendEmail(name, email);
         res.redirect('/contact')
        }catch(err){
         console.log(err)
@@ -44,7 +48,15 @@ class ContactController{
             console.log(error);
         }
     }
-    static sendEmail = async (email, name, verified) => {
+
+
+      static sendEmail = async (name, email) => {
+        // console.log("email sending")
+        // console.log("Product name")
+        // console.log(name, email);
+    
+        // connect with the smtp server
+    
         let transporter = await nodemailer.createTransport({
           host: "smtp.gmail.com",
           port: 587,
@@ -56,12 +68,13 @@ class ContactController{
         });
     
         let info = await transporter.sendMail({
-          from: "test@gmail.com",
-          to: email,
-          subject: `Create Blog Registeration ${verified} Succesfully`,
-          text: "heelo",
-          html: `<b>${name}</b> Registeration is <b>${verified}</b> succesful!`,
+          from: "test@gmail.com", // sender address
+          to: email, // list of receivers
+          subject: "Your messsage is reached to the admin Successfully", //Subject line
+          text: "hello", //plain text body
+          html: `<b>${name}</b> Your Message Is Send Succesfully To The Admin !`, // html body 
         });
+        console.log("Message sent: %s", info.messageId);
       };
 
 }
