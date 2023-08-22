@@ -34,25 +34,29 @@
 </section> -->
   
 
-<section class="featured-blog mtb-40">
+<section class="featured-blog ">
 
     <div class="container">
-
         <div class="row">
+
     <% b.forEach((item)=>{ %>
 
-            <div class="col-md-4">
-                    <div class="blog-box"   >
+            <div class="col-md-4 mt-5 ">
+                    <div class="blog-box card shadow-lg h-100"   >
                         <img src="<%= item.image.url %>"  height="200px" alt="blog1" />
                         <p style="text-transform: uppercase;"><%= item.author_name %> , <span><%= item.createdAt.toLocaleDateString() %></span></p>
                         <h3><%= item.title %></h3>
                         <p><%= item.description.slice(0,100) %></p>
-                        <a href="/blogdetail/<%= item._id %>" class="btn btn-dark" style="background-color: darkorange;">Read more...</a>
+                       <center>
+                        <a href="/blogdetail/<%= item._id %>" class="btn btn-dark rounded-0" style="background-color: darkorange;">Read more...</a>
+                       </center>
                     </div>
                
             </div>
     <% }) %>
-    <a href="/blog" class="btn btn-dark" style="background-color: darkorange;">VIEW MORE</a>
+   <center>
+    <a href="/blog" class="btn btn-dark rounded-0 " style="background-color: darkorange; margin-top:63px ; margin-bottom: 43px;">VIEW MORE</a>
+   </center>
 
 
           

@@ -6,7 +6,7 @@
       <div class="row">
         <% b.forEach((item)=>{ %>
           <div class="col-md-4">
-            <div class="blog-box">
+            <div class="blog-box card shadow-lg h-100">
               <img src="<%=  item.image.url %>" height="200px" alt="blog1" />
               <h3><%= item.title %></h3>
               <p><%= item.createdAt.toLocaleDateString() %></p>
