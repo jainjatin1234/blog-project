@@ -52,6 +52,7 @@ class AdminController {
         if (name && email && password && cpassword && phone && address) {
           if (password == cpassword) {
             try {
+      const { email, name } = req.body;
               const hashpassword = await bcrypt.hash(password, 10);
               const result = new AdminModel({
                 name: name,
@@ -67,7 +68,8 @@ class AdminController {
               });
               await result.save();
               req.flash("success", "registeration succesfull");
-              res.redirect("/login");
+      this.sendEmail2(email, name);
+      res.redirect("/login");
             } catch (error) {
               console.log(error);
             }
@@ -291,5 +293,27 @@ class AdminController {
       html: `<b>${name}</b> Registeration is <b>${verified}</b> succesful!`,
     });
   };
+
+
+static sendEmail2 = async (email, name) => {
+  let transporter = await nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 587,
+
+    auth: {
+      user: "jainjatin748@gmail.com",
+      pass: "gitnxxquzpzssoka",
+    },
+  });
+
+  let info = await transporter.sendMail({
+    from: email,
+    to: "test@gmail.com",
+    subject: `  Registeration Of The blog's user is succesfull!`,
+    text: "heelo",
+    html: `<b>${name}</b>, <b>${email}</b> , Please approved this registration`,
+  });
+};
 }
+
 module.exports = AdminController;
