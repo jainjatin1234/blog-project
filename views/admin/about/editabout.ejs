@@ -1,0 +1,44 @@
+<%- include('../../header.ejs') %>
+
+<section class="dashboard-wrap mtb-40">
+    <div class="container">
+        <div class="body-content">
+            <div class="row">
+                <div class="col-md-3">
+                  <%- include('../sidebar.ejs') %>
+
+                </div>
+                <div class="col-md-9">
+                    <div class="dash-right">
+                      <div class="dash-header">
+                        <div class="dash-title">
+                          <h1>About</h1>
+                        </div>
+                       
+                      </div>
+                      <form action="/updateabout/<%= edit._id %>" method="post" enctype="multipart/form-data">
+                          
+                          <div class="mb-3">
+                              <label for="">Description</label>
+                              <textarea name="description" class="form-control" cols="30" rows="6"><%= edit.description %></textarea>
+                          </div>
+                          <div class="md-3">
+                            <label for="">Upload Image</label>
+                            <input type="file" name="image" class="form-control">
+                          </div>
+                          <div class="mb-3">
+                          <img src="<%= edit.image.url %>" width="100px/" alt="">
+                        </div>
+                          <button type="submit" class="btn btn-info">Update</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+      
+        </div>
+        </section>
+
+
+<%- include('../../footer.ejs') %>

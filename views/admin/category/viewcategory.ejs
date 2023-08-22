@@ -1,0 +1,43 @@
+<%- include('../../header.ejs') %>
+<section class="dashboard-wrap mtb-40">
+    <div class="container">
+        <div class="body-content">
+            <div class="row">
+                <div class="col-md-3">
+                    <%- include('../sidebar.ejs') %>  
+  
+                </div>
+                <div class="col-md-9">
+                    <div class="dash-right">
+                        <div class="dash-header">
+                            <div class="dash-title">
+                                <h4>View List</h4>
+                            </div>
+                        
+                        <table class="table table-bordered table-striped">
+                            <tr>
+                                <th>#ID</th>
+                                <th>Name</th>
+                                <th>Image</th>
+                            </tr>
+
+                            <tbody>
+                            <tr>
+                                <td><%= view._id %></td>
+                                <td><%= view.name %></td>
+                                <td><img src="<%= view.image.url %>" alt="" width="100px"></td>
+                            
+                            </tr>
+                            </tbody>
+
+                          
+                        </table>
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+  
+<%- include('../../footer.ejs') %>

@@ -1,0 +1,68 @@
+<%- include('./header.ejs') %>
+
+<section class="blog-detail mtb-40" style="margin-top:140px;">
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="blog-left">
+                    <h1><%= d.title %></h1>
+                    <div class="posted-on">
+                        <p>by <span>RSGiTECH</span> on <span>October 22, 2018</span></p>
+                    </div>
+                    <div class="detail-img">
+                       <img src="<%= d.image.url %>" width="50%" />
+                    </div>
+                    <div class="blog-desc">
+                        <p><%= d.description %></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="blog-right">
+                    <div class="right-widget recent-post">
+                        <h3>Recent Blogs</h3>
+                        
+                         <% r.forEach((recentitem)=>{ %>
+                            <div class="rb-box">
+                                <div class="rb-box-img">
+                                    <img src="<%= recentitem.image.url %>" alt="blog1" />
+                                </div>
+                                <div class="rb-box-desc">
+                                    <h4><%= recentitem.title %></h4>
+                                    <p><%= recentitem.createdAt.toLocaleDateString() %></p>
+                                </div>
+                            </div>
+                         <% }) %>
+                        
+                 
+                    </div>
+                     <div class="right-widget categories">
+                         <h3>Categories</h3>
+                       <div class="row gy-1">
+                        <% c.forEach((categoryitem)=>{ %>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <h5><a href="" class="text-decoration-none">
+                                        <%= categoryitem.name %>
+                                    </a></h5>
+                                </div>
+                                <div class="col-3">
+                               
+                                
+                                        <img src="<%= categoryitem.image.url %>" width="100px"  />
+                                    
+                                </div>
+                            
+                            </div>
+                            <hr>
+                            <% }) %>
+                       </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('./footer.ejs') %>

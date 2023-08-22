@@ -1,0 +1,111 @@
+<%- include('../../header.ejs') %>
+
+<section class="dashboard-wrap mtb-40">
+  <div class="container">
+      <div class="body-content">
+          <div class="row">
+              <div class="col-md-3">
+                <%- include('../sidebar.ejs') %>  
+
+              </div>
+              <div class="col-md-9">
+                <div class="dash-right">
+                    <div class="dash-header">
+                        <div class="dash-title">
+                            <h1>Category</h1>
+                        </div>
+                        <div class="dash-nav">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                              Add Category
+                              </button>                            </div>
+                    </div>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                          <tr>
+                            <th>#ID</th>
+                            <th>Name</th>
+                            <th>Image</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        
+                        <tbody>
+                          <% d.forEach((item)=>{ %>
+                            <tr>
+                              <td><%= item._id %></td>
+                              <td><%= item.name %></td>
+                              <td><img src="<%= item.image.url %>" alt="" width="50px"></td>
+
+                              <td>
+                                <a href="/editcategory/<%= item._id %>">
+                                  <i class="fa-solid fa-pen-to-square " style="color:  black;"></i>
+                                </a>
+
+                                <a href="/viewcategory/<%= item._id %>">
+                                  <i class="fa-regular fa-eye" style="color: green;"></i>                              
+                                  </a>
+
+                                <a href="/deletecategory/<%= item._id %>">
+                                  <i class="fa-solid fa-trash" style="color: red;"></i>
+                                                                </a>
+                              </td>
+
+                            </tr>
+
+                            
+                         <% }) %>
+                         
+                        </tbody>
+                      <tfoot>
+                       
+                        <tr>
+                          <th>#ID</th>
+                          <th>Name</th>
+                          <th>Image</th>
+                          <th>Action</th>
+                      </tr>
+                      </tfoot>
+                    </table>
+                </div>   
+              </div>
+          </div>
+      </div>
+    
+      </div>
+      </section>
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <form action="/insertcategory" method="post" enctype="multipart/form-data">
+            <div class="md-3">
+              <label for="">Name</label>
+              <input type="text" name="name" class="form-control" required>
+            </div>
+         
+            <div class="md-3">
+              <label for="">Upload Image</label>
+              <input type="file" name="image" class="form-control" required>
+            </div>
+            <div class="d-flex justify-content-end">
+              <button type="reset" class="btn btn-secondary me-2 bg-slate-500" > Reset</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<%- include('../../footer.ejs') %>

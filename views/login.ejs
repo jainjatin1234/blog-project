@@ -1,0 +1,49 @@
+<%- include('./header.ejs')  %>
+
+
+<br><br><br><br>
+<section class="login-wrap mtb-40 pt-5" >
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="login-box">
+                    <h1>Login</h1>
+
+                    <% if(message1.length >0){ %>
+                        <div class="alert alert-danger">
+                         <%= message1 %>
+                        </div>
+                     <% } %>
+    
+                                                  
+             <% if(message2.length >0){ %>
+                <div class="alert alert-danger">
+                 <%= message2 %>
+                </div>
+             <% } %>
+    
+                    
+                    <form action="/verifylogin" method="post">
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder=" Email or Username" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control" placeholder="Password" required>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-dark" style="background-color: darkorange;">Log In</button>                               
+                        </div>
+                        <div class="form-group">
+                            <a class="btn btn-primary" style="background-color: darkorange;" href="/register">SIGN IN</a>                               
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<br><br><br><br>
+
+
+<%- include('./footer.ejs')  %>

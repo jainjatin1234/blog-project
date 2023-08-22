@@ -1,0 +1,20 @@
+<div class="dash-left">
+    <ul>
+        <li class="active"><a href="/dashboard" class="active">Dashboard</a></li>
+        <li><a href="/displayblog"> DisplayBlogs</a></li>
+        <li><a href="/displaycategory">Categories</a></li>
+        <li><a href="/changepassword">Change Password</a></li>
+        <li><a href="/changeprofile">Change Profile</a></li>
+
+        <% if(ver == "Admin"){ %>
+        
+            <li><a href="/displayabout">About</a></li>
+            <li><a href="/userblog">User Blog All</a></li>
+            <li><a href="/displaycontact">Contact</a></li>
+            <li><a href="/user">user</a></li>
+       <% } %>
+
+        <li><a href="/logout">Logout</a></li>
+
+    </ul>
+</div> 

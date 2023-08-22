@@ -1,0 +1,66 @@
+<%- include('./header.ejs') %> 
+
+
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+  
+   
+    <div class="carousel-item active">
+      <img src="/images/blogger.jpg" class="d-block w-100" alt="...">
+    </div>
+
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+<!-- <section class="banner">
+    <div class="banner-box">
+        <div class="intro-text">
+            <div class="intro-text-box">
+                <h1>Lorem Ipsum is simply dummy text</h1>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+            </div>
+        </div>
+        <img src="/images/banner.jpg" alt="banner" />
+    </div>
+</section> -->
+  
+
+<section class="featured-blog mtb-40">
+
+    <div class="container">
+
+        <div class="row">
+    <% b.forEach((item)=>{ %>
+
+            <div class="col-md-4">
+                    <div class="blog-box"   >
+                        <img src="<%= item.image.url %>"  height="200px" alt="blog1" />
+                        <p style="text-transform: uppercase;"><%= item.author_name %> , <span><%= item.createdAt.toLocaleDateString() %></span></p>
+                        <h3><%= item.title %></h3>
+                        <p><%= item.description.slice(0,100) %></p>
+                        <a href="/blogdetail/<%= item._id %>" class="btn btn-dark" style="background-color: darkorange;">Read more...</a>
+                    </div>
+               
+            </div>
+    <% }) %>
+    <a href="/blog" class="btn btn-dark" style="background-color: darkorange;">VIEW MORE</a>
+
+
+          
+        </div>
+
+    </div>
+
+</section>
+
+
+<%- include('./footer.ejs') %>

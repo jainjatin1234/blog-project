@@ -1,0 +1,38 @@
+<%- include('../header.ejs') %>
+
+
+<div class="container-fluid " style="margin-top: 129px;">
+    <div class="container shadow-lg" style="border-radius: 1rem 1rem 1rem 1rem;">
+        <div class="row">
+            <h1 class="mt-5 text-center" style="color:#386576;">
+                <span style=" border-bottom: 2px solid #386576;">CREATE YOUR BLOG</span>
+            </h1>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8 mt-1">
+                <% if(message.length >0){ %>
+                    <div class="alert alert-danger">
+                     <%= message %>
+                    </div>
+                 <% } %>
+
+                <form action="/admininsert" method="post" class="text-center" novalidate="novalidate" enctype="multipart/form-data">
+                    <input type="text" name="name" id="name" class="form-control mt-4" placeholder="Name">
+                    <input type="email" name="email" id="email" class="form-control mt-4" placeholder="email">
+                    <input type="password" name="password" id="password" class="form-control mt-4" placeholder="password">
+                    <input type=" password" name="cpassword" class="form-control mt-4" placeholder="Confirm password">
+                    <input type=" number" name="phone" class="form-control mt-4" placeholder="Phone number">
+                    <textarea name="address" placeholder="Address" cols="30" rows="5" class="form-control"></textarea>
+                    <input type="file" name="image" class="form-control mt-4"
+                    required>
+                    <!-- <input type="password" name="password" id="password" class="form-control mt-4" placeholder="confirm  password"> -->
+                    <button class="btn mt-4" style="background:#6696a0;; color: white; border:0; padding: 12px 26px;">REGISTER</button>
+                </form>
+                <br>                                                                                                              
+            </div>
+            <div class="col-sm-2"></div>
+        </div><!--row end-->
+    </div><!--container end-->
+</div>
+
+
+<%- include('../footer.ejs')  %>
