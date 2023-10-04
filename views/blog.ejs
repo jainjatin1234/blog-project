@@ -9,8 +9,8 @@
             <div class="blog-box card shadow-lg h-100">
               <img src="<%=  item.image.url %>" height="200px" alt="blog1" />
               <h3><%= item.title %></h3>
-              <p><%= item.createdAt.toLocaleDateString() %></p>
-              <p><%= item.description.slice(0,100) %></p>
+              <p style="text-transform: uppercase;"><%= item.author_name %> , <span><%= item.createdAt.toLocaleDateString() %></span></p>
+                            <p><%= item.description.slice(0,100) %></p>
               <a href="/blogdetail/<%= item._id %>" style="background-color: darkorange;" class="btn btn-dark">Read more. </a>
             </div>
           </div>
