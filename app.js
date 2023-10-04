@@ -2,7 +2,7 @@ const express = require('express')
 const FrontController = require('./controllers/FrontController')
 // console.log(express)
 const app = express()
-const port = 3000
+const port = 5000
 const web = require('./routes/web')
 const connectdb = require('./db/dbconnect')
 const fileupload = require('express-fileupload')
